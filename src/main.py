@@ -8,8 +8,8 @@ from src.pipeline.transform.batch_transformation_runner import BatchTransformati
 from src.pipeline.load.writer import Writer
 from src.boilerplate.runtime import logger
 from src.pipeline.registry import registry
-from src.pipeline.constants.dataframes_catalog import Catalog
-from src.pipeline.interfaces.registry_definitions import TransformationStep
+from src.pipeline.constants.datasets_catalog import Catalog
+from src.pipeline.models import TransformationStep
 
 EXTRACTION_SOURCES = [
     Catalog.CLIENT.value,

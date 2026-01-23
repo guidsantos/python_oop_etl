@@ -1,6 +1,6 @@
 from typing import Optional
 from pyspark.sql import DataFrame
-from src.pipeline.interfaces.registry_definitions import DatasetKey
+from src.pipeline.models.registry_definitions import DatasetKey
 from src.boilerplate.runtime import logger
 import threading
 

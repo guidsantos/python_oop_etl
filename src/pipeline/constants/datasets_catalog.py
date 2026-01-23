@@ -2,7 +2,7 @@ from enum import Enum
 
 from pipeline.constants.extract_helpers import ReadFormat
 
-from pipeline.interfaces.registry_definitions import DatasetKey, SourceTable
+from pipeline.models.registry_definitions import DatasetKey, SourceTable
 
 
 class Catalog(Enum):

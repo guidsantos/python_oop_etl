@@ -3,7 +3,7 @@ from pyspark.sql.functions import col, when
 
 from src.pipeline.transform.transformer_model import Transformer
 from src.pipeline.registry import registry
-from src.pipeline.constants.dataframes_catalog import Catalog
+from src.pipeline.constants.datasets_catalog import Catalog
 from src.boilerplate.runtime import logger
 
 

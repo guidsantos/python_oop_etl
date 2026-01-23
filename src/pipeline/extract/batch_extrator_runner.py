@@ -1,7 +1,7 @@
 from src.pipeline.registry import registry
 
 from src.boilerplate.runtime import logger
-from src.pipeline.interfaces.registry_definitions import SourceTable
+from src.pipeline.models.registry_definitions import SourceTable
 from .extractor_factory import ExtractorFactory
 
 

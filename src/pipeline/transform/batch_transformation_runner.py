@@ -1,6 +1,6 @@
 from src.pipeline.registry import registry
 from src.boilerplate.runtime import logger
-from src.pipeline.interfaces.registry_definitions import DatasetKey, TransformationStep
+from src.pipeline.models import DatasetKey, TransformationStep
 from .transformer_factory import TransformerFactory
 from typing import Union
 

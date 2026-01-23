@@ -22,13 +22,9 @@ class Writer:
         
         # Determine output path based on environment
         if job_args.get("env") == "local":
-            output_path = "../local_dev/data/output.json"
-            logger.info(f"Writing to local parquet: {output_path}")
-            
-            # Write as parquet
-            final_df.write.mode("overwrite").json(output_path)
-            
-            logger.info(f"Successfully wrote data to {output_path}")
+            #TODO: Implement write to local file
+
+            logger.info(f"Successfully wrote data to {final_df}")
         else:
             # For production: write to database, S3, etc.
             logger.info("Production write logic not yet implemented")

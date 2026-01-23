@@ -5,7 +5,7 @@ from .transformers import (
     SalesEnrichmentTransformer,
     SalesClientJoinTransformer
 )
-from src.pipeline.constants.dataframes_catalog import Catalog
+from src.pipeline.constants.datasets_catalog import Catalog
 from src.boilerplate.runtime import logger
 
 

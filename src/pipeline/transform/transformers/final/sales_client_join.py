@@ -25,7 +25,7 @@ class SalesClientJoinTransformer(Transformer):
             enriched_client,
             on="client_id",
             how="left"
-        )
+        ).drop(enriched_client["client_id"])
         
         logger.info(f"Sales-Client join complete. Records: {unified.count()}")
         

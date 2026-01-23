@@ -26,6 +26,8 @@ class SalesPrepTransformer(Transformer):
         
         # Filter only active sales
         prepared = prepared.filter(col("status") == "active")
+
+        prepared = prepared.withColumnRenamed("status","sales_status")
         
         logger.info(f"Sales prep complete. Active sales: {prepared.count()}")
         

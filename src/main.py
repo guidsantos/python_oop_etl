@@ -5,6 +5,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from src.pipeline.extract.batch_extrator_runner import BatchExtractionRunner
 from src.pipeline.transform.batch_transformation_runner import BatchTransformationRunner
+from src.pipeline.load.writer import Writer
 from src.boilerplate.runtime import logger
 from src.pipeline.registry import registry
 from src.pipeline.constants.dataframes_catalog import Catalog
@@ -59,8 +60,11 @@ def main():
         logger.info("=" * 50)
         BatchTransformationRunner(transformations=TRANSFORMATION_STEPS).run()
         
-        # Step 3: Load (placeholder for now)
-        # load().run()
+        # Step 3: Load/Write data
+        logger.info("=" * 50)
+        logger.info("LOAD PHASE")
+        logger.info("=" * 50)
+        Writer().write()
 
     Orchestrator()
 

@@ -1,0 +1,50 @@
+[
+    {
+        "client_id": 1,
+        "client_name": "Acme Corporation",
+        "email": "contact@acme.com",
+        "created_at": "2024-01-15 10:30:00",
+        "last_updated": "2024-12-20 14:45:30",
+        "status": "active"
+    },
+    {
+        "client_id": 2,
+        "client_name": "Global Tech Solutions",
+        "email": "info@globaltech.com",
+        "created_at": "2024-02-10 09:15:00",
+        "last_updated": "2025-01-10 11:20:15",
+        "status": "active"
+    },
+    {
+        "client_id": 3,
+        "client_name": "Innovative Systems Inc",
+        "email": "hello@innovative.com",
+        "created_at": "2024-03-05 13:20:00",
+        "last_updated": "2024-06-15 16:30:45",
+        "status": "inactive"
+    },
+    {
+        "client_id": 4,
+        "client_name": "Digital Ventures Ltd",
+        "email": "support@digitalventures.com",
+        "created_at": "2024-04-22 08:45:00",
+        "last_updated": "2025-01-05 10:15:00",
+        "status": "active"
+    },
+    {
+        "client_id": 5,
+        "client_name": "Smart Solutions Co",
+        "email": "contact@smartsolutions.com",
+        "created_at": "2024-05-18 15:00:00",
+        "last_updated": "2024-08-30 12:00:00",
+        "status": "inactive"
+    },
+    {
+        "client_id": 6,
+        "client_name": "Future Innovations",
+        "email": "info@futureinnovations.com",
+        "created_at": "2024-06-12 11:30:00",
+        "last_updated": "2025-01-15 09:45:20",
+        "status": "active"
+    }
+]

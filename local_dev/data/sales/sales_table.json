@@ -1,0 +1,92 @@
+[
+    {
+        "sale_id": 101,
+        "client_id": 1,
+        "product": "Widget Pro",
+        "quantity": 50,
+        "amount": 2500.00,
+        "sale_date": "2024-06-15 14:30:00",
+        "status": "active"
+    },
+    {
+        "sale_id": 102,
+        "client_id": 2,
+        "product": "Premium Package",
+        "quantity": 10,
+        "amount": 5000.00,
+        "sale_date": "2024-07-20 10:15:00",
+        "status": "active"
+    },
+    {
+        "sale_id": 103,
+        "client_id": 1,
+        "product": "Service Plan A",
+        "quantity": 3,
+        "amount": 1500.00,
+        "sale_date": "2024-08-10 16:45:00",
+        "status": "active"
+    },
+    {
+        "sale_id": 104,
+        "client_id": 4,
+        "product": "Widget Standard",
+        "quantity": 100,
+        "amount": 3000.00,
+        "sale_date": "2024-09-05 09:30:00",
+        "status": "active"
+    },
+    {
+        "sale_id": 105,
+        "client_id": 3,
+        "product": "Enterprise License",
+        "quantity": 1,
+        "amount": 10000.00,
+        "sale_date": "2024-05-12 11:00:00",
+        "status": "inactive"
+    },
+    {
+        "sale_id": 106,
+        "client_id": 2,
+        "product": "Support Contract",
+        "quantity": 5,
+        "amount": 2000.00,
+        "sale_date": "2024-10-18 13:20:00",
+        "status": "active"
+    },
+    {
+        "sale_id": 107,
+        "client_id": 6,
+        "product": "Widget Pro",
+        "quantity": 75,
+        "amount": 3750.00,
+        "sale_date": "2024-11-22 15:10:00",
+        "status": "active"
+    },
+    {
+        "sale_id": 108,
+        "client_id": 4,
+        "product": "Premium Package",
+        "quantity": 2,
+        "amount": 1000.00,
+        "sale_date": "2024-12-05 08:45:00",
+        "status": "active"
+    },
+    {
+        "sale_id": 109,
+        "client_id": 5,
+        "product": "Basic Plan",
+        "quantity": 20,
+        "amount": 800.00,
+        "sale_date": "2024-07-30 12:30:00",
+        "status": "inactive"
+    },
+    {
+        "sale_id": 110,
+        "client_id": 1,
+        "product": "Widget Standard",
+        "quantity": 150,
+        "amount": 4500.00,
+        "sale_date": "2025-01-10 10:00:00",
+        "status": "active"
+    }
+]

@@ -1,3 +1,3 @@
-from .registry_definitions import DatasetKey, SourceTable
+from .registry_definitions import DatasetKey, SourceTable, TransformationStep
 
-__all__ = ["DatasetKey", "SourceTable"]
+__all__ = ["DatasetKey", "SourceTable", "TransformationStep"]

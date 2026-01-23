@@ -2,7 +2,7 @@ from src.pipeline.registry import registry
 
 from src.boilerplate.runtime import logger
 from src.pipeline.interfaces.registry_definitions import SourceTable
-from .factory import ExtractorFactory
+from .extractor_factory import ExtractorFactory
 
 
 class BatchExtractionRunner:

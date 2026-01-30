@@ -1,6 +1,6 @@
 from global_variables.constants.datasets_catalog import Catalog
 from global_variables.constants.extract_helpers import ReadFormat
-from pipeline.models import SourceTable
+from models import SourceTable
 
 extract_exec_contract: list[SourceTable] = [
     SourceTable(

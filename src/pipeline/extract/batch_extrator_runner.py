@@ -1,6 +1,8 @@
+from schemas.schema_definitions import SchemaRegistry
 from src.global_variables import logger, registry
-from src.pipeline.models.registry_definitions import SourceTable
+from models.registry_definitions import SourceTable
 from .extractor_factory import ExtractorFactory
+from ..validator.data_validator import DataValidator
 
 
 class BatchExtractionRunner:
@@ -16,6 +18,7 @@ class BatchExtractionRunner:
         :param sources: A list of SourceTable objects to be processed.
         """
         self._sources = sources
+        self._validator = DataValidator()
 
     def run(self) -> None:
         """
@@ -41,6 +44,10 @@ class BatchExtractionRunner:
             dataframe = extractor.extract()
 
             if dataframe is not None:
+                schema = SchemaRegistry.get_schema(source.alias)
+                self._validator.validate(dataframe, schema, source.alias)
+
+
                 registry.register(source, dataframe)
                 logger.info(f"Saved to registry: ['{source.alias}']")
             else:

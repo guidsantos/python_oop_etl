@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from pipeline.validator.data_validator import DataValidator
+from schemas.schema_definitions import SchemaRegistry
 from src.global_variables import registry
 from global_variables.constants.load_helper import FINAL_DATASET
 from src.global_variables import logger, job_args
@@ -17,6 +19,7 @@ class Writer:
     """
 
     def __init__(self, source: LoadSet):
+        self._validator = DataValidator()
         self.source = source
     
     def write(self) -> None:
@@ -29,6 +32,9 @@ class Writer:
         
         # Get the final dataset from registry_instance
         final_df = registry.get(self.source.dataset)
+
+        schema = SchemaRegistry.get_schema(self.source.full_table_name)  # ou self.source.dataset
+        self._validator.validate(final_df, schema, self.source.dataset)
         
         # Determine output path based on environment
         if job_args.get("env") == "local":

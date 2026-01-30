@@ -1,7 +1,7 @@
 from .extractors import GlueTableExtractor, IcebergExtractor, JsonExtractor
 from src.global_variables import logger, job_args
 from global_variables.constants.extract_helpers import ReadFormat
-from src.pipeline.models.registry_definitions import SourceTable
+from models.registry_definitions import SourceTable
 
 class ExtractorFactory:
     """

@@ -1,6 +1,6 @@
 from typing import Optional
 from pyspark.sql import DataFrame
-from src.pipeline.models.registry_definitions import DatasetKey
+from models.registry_definitions import DatasetKey
 
 
 class DatasetRegistry:

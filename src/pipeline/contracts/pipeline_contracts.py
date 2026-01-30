@@ -4,8 +4,8 @@ from pipeline.contracts.transformation_contract import transformation_exec_contr
 from pipeline.contracts.extract_contract import extract_exec_contract
 from pipeline.contracts.load_contract import load_exec_contract
 from pipeline.load.writer import LoadSet
-from pipeline.models import SourceTable
-from pipeline.models.registry_definitions import TransformationStep
+from models import SourceTable
+from models.registry_definitions import TransformationStep
 
 @dataclass(frozen=True)
 class PipelineContractsRegistry:

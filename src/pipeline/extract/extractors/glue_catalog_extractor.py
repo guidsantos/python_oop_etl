@@ -1,5 +1,5 @@
 from src.global_variables import logger
-from pipeline.models.extractor_model import Extractor
+from models.extractor_model import Extractor
 from pyspark.sql.types import StructType, StructField, StringType
 from src.global_variables import spark
 

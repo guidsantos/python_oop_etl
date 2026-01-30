@@ -1,5 +1,5 @@
 from src.global_variables import logger, registry
-from src.pipeline.models import TransformationStep
+from models import TransformationStep
 
 
 class BatchTransformationRunner:

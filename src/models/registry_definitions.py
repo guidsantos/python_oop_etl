@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 
 from global_variables.constants.extract_helpers import ReadFormat
-from pipeline.models.transform_model import Transformer
+from models.transform_model import Transformer
 
 
 @dataclass(frozen=True)

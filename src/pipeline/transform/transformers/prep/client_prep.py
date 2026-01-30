@@ -2,7 +2,7 @@ from pyspark.sql import DataFrame
 from pyspark.sql.functions import to_timestamp, col
 
 from src.global_variables import registry
-from src.pipeline.models.transform_model import Transformer
+from models.transform_model import Transformer
 from src.global_variables.constants.datasets_catalog import Catalog
 from src.global_variables import logger
 

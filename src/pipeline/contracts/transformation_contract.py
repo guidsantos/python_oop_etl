@@ -1,5 +1,5 @@
 from global_variables.constants.datasets_catalog import Catalog
-from pipeline.models import TransformationStep
+from models import TransformationStep
 from pipeline.transform import SalesClientJoinTransformer, ClientEnrichmentTransformer, SalesEnrichmentTransformer, \
     SalesPrepTransformer, ClientPrepTransformer
 

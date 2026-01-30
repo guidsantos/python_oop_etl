@@ -1,6 +1,9 @@
 from dataclasses import dataclass, field
 from typing import Optional
-from src.pipeline.constants.extract_helpers import ReadFormat
+
+from global_variables.constants.extract_helpers import ReadFormat
+from pipeline.models.transform_model import Transformer
+
 
 @dataclass(frozen=True)
 class DatasetKey:
@@ -26,3 +29,16 @@ class SourceTable(DatasetKey):
     database: str
     table_name: str
     read_format: ReadFormat
+
+@dataclass(frozen=True)
+class TransformationStep(DatasetKey):
+    """
+    Represents a transformation step with its dependencies.
+
+    Attributes:
+        dataset_key (DatasetKey): The output dataset of this transformation.
+        drop_dependencies (list[DatasetKey]): Optional list of DatasetKey objects to drop after transformation.
+    """
+    dataset_key: DatasetKey
+    transformer_class: type[Transformer]
+    drop_dependencies: Optional[list[DatasetKey]] = field(default=list)

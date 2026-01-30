@@ -1,8 +1,6 @@
-from src.pipeline.registry import registry
-from src.boilerplate.runtime import logger
-from src.pipeline.models import DatasetKey, TransformationStep
-from .transformer_factory import TransformerFactory
-from typing import Union
+from src.global_variables import registry
+from src.global_variables import logger
+from src.pipeline.models import TransformationStep
 
 
 class BatchTransformationRunner:
@@ -13,7 +11,7 @@ class BatchTransformationRunner:
     and registers the result back to registry.
     """
 
-    def __init__(self, transformations: list[Union[TransformationStep, DatasetKey]]):
+    def __init__(self, transformations: list[TransformationStep]):
         """
         :param transformations: List of TransformationStep or DatasetKey objects.
                                TransformationStep includes drop_dependencies.
@@ -46,9 +44,10 @@ class BatchTransformationRunner:
         try:
             logger.info(f"Processing transformation: {dataset_key.alias}")
 
-            transformer = TransformerFactory.get_transformer(dataset_key)
+            # Instantiate the transformer class provided in the step
+            transformer_instance = transformation_step.transformer_class()
 
-            dataframe = transformer.transform()
+            dataframe = transformation_step.transformer_class().transform()
 
             if dataframe is not None:
                 registry.register(dataset_key, dataframe)

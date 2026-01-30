@@ -1,6 +1,6 @@
-from src.pipeline.registry import registry
-from src.pipeline.constants.load_helper import FINAL_DATASET
-from src.boilerplate.runtime import logger, job_args
+from src.global_variables import registry
+from global_variables.constants.load_helper import FINAL_DATASET
+from src.global_variables import logger, job_args
 
 
 class Writer:

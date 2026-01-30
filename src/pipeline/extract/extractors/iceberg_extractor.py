@@ -1,7 +1,7 @@
-from src.boilerplate.runtime import logger
+from src.global_variables import logger
 from src.pipeline.extract.extractor_model import Extractor
 from pyspark.sql.types import StructType, StructField, StringType
-from src.boilerplate.runtime import spark
+from src.global_variables import spark
 
 class IcebergExtractor(Extractor):
     def __init__(self, database: str, table_name: str):

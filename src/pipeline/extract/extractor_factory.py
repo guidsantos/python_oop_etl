@@ -1,6 +1,6 @@
 from .extractors import GlueTableExtractor, IcebergExtractor, JsonExtractor
-from src.boilerplate.runtime import logger, job_args
-from src.pipeline.constants.extract_helpers import ReadFormat
+from src.global_variables import logger, job_args
+from global_variables.constants.extract_helpers import ReadFormat
 from src.pipeline.models.registry_definitions import SourceTable
 
 class ExtractorFactory:
@@ -16,7 +16,10 @@ class ExtractorFactory:
         # 1. Local execution
         if job_args.get("env") == 'local':
             logger.info(f"Local execution: {source.database}.{source.table_name}")
-            path = f"../local_dev/data/{source.database}/{source.table_name}.json"
+            # Use os.path to avoid fragile string concatenation and ensure consistency
+            import os
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+            path = os.path.join(base_dir, "local_dev", "data", source.database, f"{source.table_name}.json")
             return JsonExtractor(path)
 
         # 2. Check read_format for Iceberg

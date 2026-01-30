@@ -1,16 +1,16 @@
 
 from abc import ABC, abstractmethod
-from typing import Any
-from src.pipeline.registry.registry_handler import DataRegistry
+from pyspark.sql import DataFrame
+from src.global_variables.registry.registry_handler import DatasetRegistry
 
 class Transformer(ABC):
     """
     Abstract Base Class for Data Transformers.
     """
     @abstractmethod
-    def transform(self, registry: DataRegistry) -> Any:
+    def transform(self) -> DataFrame:
         """
         Performs transformation using data from the registry.
-        Can return a new DataFrame/DynamicFrame or update the registry directly.
+        Returns a transformed DataFrame.
         """
         pass

@@ -1,9 +1,9 @@
 from pyspark.sql import DataFrame
 
-from src.pipeline.transform.transformer_model import Transformer
-from src.pipeline.registry import registry
-from src.pipeline.constants.datasets_catalog import Catalog
-from src.boilerplate.runtime import logger
+from pipeline.models.transform_model import Transformer
+from src.global_variables.registry.registry_handler import DatasetRegistry
+from global_variables.constants.datasets_catalog import Catalog
+from src.global_variables import logger
 
 
 class SalesClientJoinTransformer(Transformer):
@@ -12,7 +12,7 @@ class SalesClientJoinTransformer(Transformer):
     Performs left join to keep all sales records.
     """
     
-    def transform(self) -> DataFrame:
+    def transform(self, registry: DatasetRegistry) -> DataFrame:
         logger.info("Running SalesClientJoinTransformer...")
         
         # Get enriched datasets from registry

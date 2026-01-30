@@ -1,7 +1,7 @@
 from typing import Optional
 from pyspark.sql import DataFrame
 from src.pipeline.models.registry_definitions import DatasetKey
-from src.boilerplate.runtime import logger
+from src.global_variables import logger
 import threading
 
 
@@ -56,7 +56,3 @@ class DatasetRegistry:
     @property
     def store(self) -> dict[str, DataFrame]:
         return self._store
-
-
-# Usability wrapper (optional, but maintains backward compatibility)
-registry = DatasetRegistry()

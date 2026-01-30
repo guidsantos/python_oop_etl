@@ -1,5 +1,5 @@
 from src.global_variables import logger
-from src.pipeline.extract.extractor_model import Extractor
+from pipeline.models.extractor_model import Extractor
 from src.global_variables import spark
 
 class JsonExtractor(Extractor):
@@ -10,5 +10,4 @@ class JsonExtractor(Extractor):
         logger.info(f"Extracting from JSON file (Local): {self.path}")
         # Read JSON with multiLine option for JSON arrays and cache to avoid corrupt record issues
         df = spark.read.option("multiLine", "true").json(self.path)
-        df.cache()  # Cache to resolve the _corrupt_record issue
         return df

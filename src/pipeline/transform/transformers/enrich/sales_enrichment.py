@@ -2,7 +2,7 @@ from pyspark.sql import DataFrame
 from pyspark.sql.functions import col, when
 
 from pipeline.models.transform_model import Transformer
-from src.global_variables.registry.registry_handler import DatasetRegistry
+from src.global_variables import registry
 from global_variables.constants.datasets_catalog import Catalog
 from src.global_variables import logger
 
@@ -13,10 +13,10 @@ class SalesEnrichmentTransformer(Transformer):
     - revenue_category: Categorizes sales by amount (high/medium/low)
     """
     
-    def transform(self, registry: DatasetRegistry) -> DataFrame:
+    def transform(self) -> DataFrame:
         logger.info("Running SalesEnrichmentTransformer...")
         
-        # Get prepared sales data from registry
+        # Get prepared sales data from registry_instance
         prepared_sales = registry.get(Catalog.SALES_PREPARED.value)
         
         # Add revenue category based on amount

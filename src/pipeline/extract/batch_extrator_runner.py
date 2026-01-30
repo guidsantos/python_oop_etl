@@ -1,6 +1,4 @@
-from src.global_variables import registry
-
-from src.global_variables import logger
+from src.global_variables import logger, registry
 from src.pipeline.models.registry_definitions import SourceTable
 from .extractor_factory import ExtractorFactory
 

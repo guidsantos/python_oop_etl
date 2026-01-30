@@ -1,5 +1,3 @@
-from .app_context import registry, logger, spark, job_args_setup, glue
+from .app_context import logger, spark, job_args, glue, registry
 
-job_args = job_args_setup.args
-
-__all__ = ["registry", "logger", "spark", "job_args", "glue"]
+__all__ = ["logger", "spark", "job_args", "glue", "registry"]

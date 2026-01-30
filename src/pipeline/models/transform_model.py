@@ -1,7 +1,6 @@
 
 from abc import ABC, abstractmethod
 from pyspark.sql import DataFrame
-from src.global_variables.registry.registry_handler import DatasetRegistry
 
 class Transformer(ABC):
     """
@@ -10,7 +9,7 @@ class Transformer(ABC):
     @abstractmethod
     def transform(self) -> DataFrame:
         """
-        Performs transformation using data from the registry.
+        Performs transformation using data from the registry_instance.
         Returns a transformed DataFrame.
         """
         pass

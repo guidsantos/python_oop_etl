@@ -1,54 +1,8 @@
+from pipeline.contracts.pipeline_contracts import PipelineContracts
 from src.pipeline.extract.batch_extrator_runner import BatchExtractionRunner
 from src.pipeline.transform.batch_transformation_runner import BatchTransformationRunner
 from src.pipeline.load.writer import Writer
 from src.global_variables import logger, registry
-from global_variables.constants.datasets_catalog import Catalog
-from src.pipeline.models import TransformationStep
-from src.pipeline.transform.transformers import (
-    ClientPrepTransformer,
-    SalesPrepTransformer,
-    ClientEnrichmentTransformer,
-    SalesEnrichmentTransformer,
-    SalesClientJoinTransformer
-)
-
-EXTRACTION_SOURCES = [
-    Catalog.CLIENT.value,
-    Catalog.SALES.value
-]
-
-TRANSFORMATION_STEPS = [
-    # Prep stage: Clean and filter, drop raw data after
-    TransformationStep(
-        dataset_key=Catalog.CLIENT_PREPARED.value,
-        transformer_class=ClientPrepTransformer,
-        drop_dependencies=[Catalog.CLIENT.value]
-    ),
-    TransformationStep(
-        dataset_key=Catalog.SALES_PREPARED.value,
-        transformer_class=SalesPrepTransformer,
-        drop_dependencies=[Catalog.SALES.value]
-    ),
-    
-    # Enrichment stage: Add calculated fields, drop prepared data after
-    TransformationStep(
-        dataset_key=Catalog.ENHANCED_CLIENT.value,
-        transformer_class=ClientEnrichmentTransformer,
-        drop_dependencies=[Catalog.CLIENT_PREPARED.value]
-    ),
-    TransformationStep(
-        dataset_key=Catalog.SALES_ENRICHED.value,
-        transformer_class=SalesEnrichmentTransformer,
-        drop_dependencies=[Catalog.SALES_PREPARED.value]
-    ),
-    
-    # Final stage: Join tables, drop enriched data after
-    TransformationStep(
-        dataset_key=Catalog.UNIFIED_DATA.value,
-        transformer_class=SalesClientJoinTransformer,
-        drop_dependencies=[Catalog.SALES_ENRICHED.value, Catalog.ENHANCED_CLIENT.value]
-    ),
-]
 
 def main():
     logger.info("Starting ETL Pipeline...")
@@ -57,19 +11,19 @@ def main():
     logger.info("=" * 50)
     logger.info("EXTRACTION PHASE")
     logger.info("=" * 50)
-    BatchExtractionRunner(sources=EXTRACTION_SOURCES).run()
+    BatchExtractionRunner(sources=PipelineContracts.EXTRACT).run()
     
     # Step 2: Transform data
     logger.info("=" * 50)
     logger.info("TRANSFORMATION PHASE")
     logger.info("=" * 50)
-    BatchTransformationRunner(transformations=TRANSFORMATION_STEPS).run()
+    BatchTransformationRunner(transformations=PipelineContracts.TRANSFORMATION).run()
     
     # Step 3: Load/Write data
     logger.info("=" * 50)
     logger.info("LOAD PHASE")
     logger.info("=" * 50)
-    Writer().write()
+    Writer(PipelineContracts.LOAD).write()
 
     logger.info("=" * 50)
     logger.info(f"ETL Pipeline Complete!")

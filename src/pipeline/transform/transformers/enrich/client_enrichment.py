@@ -2,7 +2,7 @@ from pyspark.sql import DataFrame
 from pyspark.sql.functions import col, current_date, datediff, when
 
 from pipeline.models.transform_model import Transformer
-from src.global_variables.registry.registry_handler import DatasetRegistry
+from src.global_variables import registry
 from global_variables.constants.datasets_catalog import Catalog
 from src.global_variables import logger
 
@@ -14,10 +14,10 @@ class ClientEnrichmentTransformer(Transformer):
     - is_recently_updated: Boolean if updated in last 30 days
     """
     
-    def transform(self, registry: DatasetRegistry) -> DataFrame:
+    def transform(self) -> DataFrame:
         logger.info("Running ClientEnrichmentTransformer...")
         
-        # Get prepared client data from registry
+        # Get prepared client data from registry_instance
         prepared_client = registry.get(Catalog.CLIENT_PREPARED.value)
         
         # Add calculated fields

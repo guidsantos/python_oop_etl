@@ -2,7 +2,7 @@ from pyspark.sql import DataFrame
 from pyspark.sql.functions import to_timestamp, col
 
 from pipeline.models.transform_model import Transformer
-from src.global_variables.registry.registry_handler import DatasetRegistry
+from src.global_variables import registry
 from global_variables.constants.datasets_catalog import Catalog
 from src.global_variables import logger
 
@@ -14,10 +14,10 @@ class SalesPrepTransformer(Transformer):
     - Filters out inactive sales
     """
     
-    def transform(self, registry: DatasetRegistry) -> DataFrame:
+    def transform(self) -> DataFrame:
         logger.info("Running SalesPrepTransformer...")
         
-        # Get raw sales data from registry
+        # Get raw sales data from registry_instance
         raw_sales = registry.get(Catalog.SALES.value)
         
         # Convert string timestamp to timestamp type

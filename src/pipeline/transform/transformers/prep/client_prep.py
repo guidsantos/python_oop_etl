@@ -1,9 +1,9 @@
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import to_timestamp, col
 
-from pipeline.models.transform_model import Transformer
-from src.global_variables.registry.registry_handler import DatasetRegistry
-from global_variables.constants.datasets_catalog import Catalog
+from src.global_variables import registry
+from src.pipeline.models.transform_model import Transformer
+from src.global_variables.constants.datasets_catalog import Catalog
 from src.global_variables import logger
 
 
@@ -14,10 +14,10 @@ class ClientPrepTransformer(Transformer):
     - Filters out inactive clients
     """
     
-    def transform(self, registry: DatasetRegistry) -> DataFrame:
+    def transform(self) -> DataFrame:
         logger.info("Running ClientPrepTransformer...")
         
-        # Get raw client data from registry
+        # Get raw client data from registry_instance
         raw_client = registry.get(Catalog.CLIENT.value)
         
         # Convert string timestamps to timestamp type
